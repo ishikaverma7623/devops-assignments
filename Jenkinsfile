@@ -14,9 +14,11 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Kubernetes') {
             steps {
-                echo 'Deploying application...'
+                echo 'Deploying application to Kubernetes...'
+                bat 'kubectl apply -f "assignment 2/deployment.yaml"'
+                bat 'kubectl apply -f "assignment 2/service.yaml"'
             }
         }
     }
